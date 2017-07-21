@@ -13,7 +13,7 @@ public class Receiver {
 
     private Logger logger = LoggerFactory.getLogger(Receiver.class);
 
-    @JmsListener(destination = "mailbox")
+    @JmsListener(destination = "wms-mailbox")
     public void receiveMessage(Email email) {
         logger.info("Received < {} >", email);
     }

@@ -26,6 +26,6 @@ public class Sender {
     public void sendMessage() {
         logger.info("Sending email message.");
         Email email = new Email("me@test.invalid", "Hello (" + LocalDateTime.now() + ")!");
-        template.convertAndSend("mailbox", email);
+        template.convertAndSend("elisa-mailbox", email);
     }
 }
