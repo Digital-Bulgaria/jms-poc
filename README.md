@@ -10,14 +10,14 @@ A playground for experimentation with JMS based communication. There are five mo
 ## Elisa (demo-elisa-sender)
 Represents the system that produces the data. It sends the data to the elisa-mailbox queue, that is managed by the elisa broker. New data is produced and sent every 3 seconds.
 
-## Elisa JMS broker
+## Elisa JMS broker (demo-elisa-broker)
 An ActiveMQ broker that manages the elisa-mailbox queue.
 
-## Mobility service
+## Mobility service (demo-mobility-service-jms)
 The mobility service listens for messages on the elisa-mailbox. The messages could be processed in some way before the processed data is sent to the wms-mailbox queue.
 
-## WMS JMS broker
+## WMS JMS broker (demo-wms-broker)
 An ActiveMQ broker that manages the wms-mailbox queue.
 
-## WMS
+## WMS (demo-wms-receiver)
 Listens for new messages on the wms-mailbox queue.
