@@ -18,7 +18,7 @@ public class MobilityConnector {
         this.wmsSenderTemplate = wmsSenderTemplate;
     }
 
-    @JmsListener(destination = "elisa-mailbox", containerFactory = "elisaFactory")
+    @JmsListener(destination = "${elisa.destination.name}", containerFactory = "elisaFactory")
     public void handleElisaMessage(Email email) {
         logger.info("Received message from Elisa, sending it to WMS.");
         wmsSenderTemplate.convertAndSend(email);
