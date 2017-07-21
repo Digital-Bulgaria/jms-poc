@@ -1,24 +1,23 @@
 # Introduction
 
-A playground for experimentation with JMS based comunication. The repository houses a few different modules, each representing a different participant in the messaging process.
+A playground for experimentation with JMS based communication. There are five modules simulating the communication with two external systems with their own separately managed jms queues (via two ActiveMQ brokers).
+
+# Overview
+![JMS communication overview](/images/jmsOverview.png)
 
 # Projects
 
-## demo-broker
+## Elisa (demo-elisa-sender)
+Represents the system that produces the data. It sends the data to the elisa-mailbox queue, that is managed by the elisa broker. New data is produced and sent every 3 seconds.
 
-Encapsulates the JMS provider.
-* It's a simple spring boot application that depends on the ActiveMQ broker.
-* It only manages the JMS queues/topics and doesn't produce or consume any messages.
-* Can be replaced by any JMS broker. It's a separate module only because it's convenient to manage it from the IDE the same way as the other modules and simplifies the setup.
+## Elisa JMS broker
+An ActiveMQ broker that manages the elisa-mailbox queue.
 
-## demo-receiver
+## Mobility service
+The mobility service listens for messages on the elisa-mailbox. The messages could be processed in some way before the processed data is sent to the wms-mailbox queue.
 
-A simple message consumer.
-* Receives messages from the "mailbox" destination (queue)
-* Uses jackson to convert the message payload from json to an instance of com.example.demoreceiver.Email.
+## WMS JMS broker
+An ActiveMQ broker that manages the wms-mailbox queue.
 
-## demo-sender
-A simple message producer.
-* Sends messages to the "mailbox" destination (queue)
-* Uses jackson to convert the message payload to json from an instance of com.example.demosender.Email.
-* Uses a scheduler to periodically send the same message
+## WMS
+Listens for new messages on the wms-mailbox queue.
