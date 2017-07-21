@@ -16,7 +16,7 @@ public class ElisaConfig {
     @Bean(name = "elisaFactory")
     public JmsListenerContainerFactory getElisaListenerContainerFactory(
             DefaultJmsListenerContainerFactoryConfigurer configurer,
-            @Value("${spring.activemq.elisa.broker-url}") String elisaBrokerURL) {
+            @Value("${elisa.broker-url}") String elisaBrokerURL) {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(elisaBrokerURL);
         configurer.configure(factory, connectionFactory);

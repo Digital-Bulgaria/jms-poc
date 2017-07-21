@@ -1,0 +1,9 @@
+server:
+  port: 8084
+
+elisa:
+    broker-url: tcp://localhost:61616
+    destination-name: elisa-mailbox
+wms:
+    broker-url: tcp://localhost:61617
+    destination-name: wms-mailbox

@@ -16,8 +16,8 @@ public class WmsConfig {
     @Bean(name = "wmsSenderTemplate")
     public JmsTemplate getJmsTemplate(
             MessageConverter messageConverter,
-            @Value("${spring.activemq.wms.broker-url}") String wmsBrokerURL,
-            @Value("${wms.destination.name}") String wmsDestinationName) {
+            @Value("${wms.broker-url}") String wmsBrokerURL,
+            @Value("${wms.destination-name}") String wmsDestinationName) {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(wmsBrokerURL);
         JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
         jmsTemplate.setDefaultDestinationName(wmsDestinationName);
