@@ -1,32 +1,5 @@
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE')
-    }
-}
-
 jar {
     baseName = 'demo-mobility-service-jms'
 }
 
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-activemq')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-

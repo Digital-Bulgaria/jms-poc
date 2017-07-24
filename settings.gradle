@@ -1,0 +1,5 @@
+include 'demo-elisa-broker'
+include 'demo-elisa-sender'
+include 'demo-mobility-service-jms'
+include 'demo-wms-broker'
+include 'demo-wms-receiver'
