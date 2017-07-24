@@ -25,3 +25,5 @@ nbdist/
 
 .mvn
 .DS_Store
+
+.gradle
