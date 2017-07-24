@@ -24,5 +24,4 @@ nbdist/
 .nb-gradle/
 
 .gradle
-gradle
 out
