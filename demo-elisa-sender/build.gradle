@@ -4,7 +4,4 @@ jar {
 
 version = '0.0.1-SNAPSHOT'
 
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter-scheduling')
-}
 
