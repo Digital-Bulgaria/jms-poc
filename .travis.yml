@@ -20,7 +20,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 after_success:
-  - docker login -u yaddayadda2 -p $DOKER_PASS
+  - docker login -u $DOCKER_ACCOUNT -p $DOKER_PASS
   # TAG the repo
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 
