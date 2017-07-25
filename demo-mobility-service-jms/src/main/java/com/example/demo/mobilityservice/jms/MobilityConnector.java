@@ -7,6 +7,8 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class MobilityConnector {
 
@@ -19,8 +21,10 @@ public class MobilityConnector {
     }
 
     @JmsListener(destination = "${elisa.destination-name}", containerFactory = "elisaFactory")
-    public void handleElisaMessage(Email email) {
+    public void handleElisaMessage(Activity activity) {
         logger.info("Received message from Elisa, sending it to WMS.");
+
+        Email email = new Email("me@test.invalid", activity.toString());
         wmsSenderTemplate.convertAndSend(email);
     }
 }

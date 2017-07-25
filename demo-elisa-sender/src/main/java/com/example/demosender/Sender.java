@@ -25,7 +25,17 @@ public class Sender {
     @Scheduled(initialDelay = 5000, fixedRate = 3000)
     public void sendMessage() {
         logger.info("Sending email message.");
-        Email email = new Email("me@test.invalid", "Hello (" + LocalDateTime.now() + ")!");
-        template.convertAndSend("elisa-mailbox", email);
+        Activity activity = new Activity();
+        activity.setYear(2017);
+        activity.setKw(35);
+        activity.setCount(1);
+        activity.setArea(60);
+        activity.setMarketNumber("48.46.2001");
+        activity.setNan(41782);
+        activity.setUnits(6);
+        activity.setDeliveryTime(1);
+        activity.setOrderCount(24);
+
+        template.convertAndSend("elisa-mailbox", activity);
     }
 }

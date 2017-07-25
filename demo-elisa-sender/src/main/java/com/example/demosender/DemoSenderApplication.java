@@ -48,7 +48,7 @@ public class DemoSenderApplication {
 
         public JaxbMessageConverter() {
             this.marshaller = new Jaxb2Marshaller();
-            Class<?>[] classesToBeBound = {Email.class};
+            Class<?>[] classesToBeBound = {Activity.class};
             marshaller.setClassesToBeBound(classesToBeBound);
         }
 
