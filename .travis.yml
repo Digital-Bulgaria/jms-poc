@@ -24,7 +24,8 @@ after_success:
   # TAG the repo
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 
-  # API-GATEWAY-SERVICE
+  # demo-elisa-sender
   - export REGISTRY=$DOCKER_ACCOUNT/demo-elisa-sender
+  - echo "Tagging the image to $REGISTRY:$TAG"
   - docker build -t $REGISTRY:$TAG ./demo-elisa-sender
   - docker push $REGISTRY
