@@ -2,8 +2,6 @@ jar {
     baseName = 'demo-wms-broker'
 }
 
-version = '0.0.1-SNAPSHOT'
-
 dependencies {
     compile('org.apache.activemq:activemq-broker')
 }

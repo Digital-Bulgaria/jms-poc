@@ -1,7 +1,4 @@
 jar {
-    baseName = 'demo-sender'
+    baseName = 'demo-elisa-sender'
 }
-
-version = '0.0.1-SNAPSHOT'
-
 

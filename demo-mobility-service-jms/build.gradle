@@ -20,8 +20,6 @@ jar {
     baseName = 'demo-mobility-service-jms'
 }
 
-version = '0.0.1-SNAPSHOT'
-
 apply plugin: 'propdeps'
 
 dependencies {
