@@ -1,3 +1,6 @@
+[![Build Status](https://api.travis-ci.org/Digital-Bulgaria/jms-poc.svg?branch=master)](https://travis-ci.org/Digital-Bulgaria/jms-poc)
+[![Language](http://img.shields.io/badge/language-java-brightgreen.svg)](https://www.java.com/)
+
 # Introduction
 
 A playground for experimentation with JMS based communication. There are five modules simulating the communication with two external systems with their own separately managed jms queues (via two ActiveMQ brokers).
