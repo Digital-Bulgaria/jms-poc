@@ -7,5 +7,4 @@ services:
       - "61616:61616"
       - "8161:8161"
   demo-elisa-sender:
-    image: yaddayadda2/demo-elisa-sender
-    restart: always
+    build: ./demo-elisa-sender/.
