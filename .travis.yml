@@ -1,0 +1,30 @@
+services:
+  - docker
+
+language: java
+jdk: oraclejdk8
+
+env:
+  global:
+    - secure: "fmYLWcH6pCNCBV728xAZvu8d6q+9FLMfAwvAjqsi+KDDa/ZOTzFzCuIJTSqQwSwWpaEfJEMnLUp1rjLw9lIVZsPl+UwcnIeZGyvPEnELvH0aFgGPSdc/0N8HqMMoihreo1k86a7C+rtbLZk0h/uIDTdvKtTK2N/lRUZk6mqkiM6pjfuPUeGBIzk+U6OFfO2r1k6QxBdtuqCg6UCOf0ZFgJlH2Y+aVBqiHn82HEC5AFWhuRRHaAK0XESSngLeUkLXlIvOu1sb1/lVOpfEUgNFX5k5wF1szdwcmdQPvZQ4CF8QQ/bFT77d1jtcAhHWgYbkNPb1KORxfoiUgfVGIZS6UG7d5uS51FpFKNOVps+lNywcPyVlSuE71/me0qA0FAu9mHN2FTlzncebtlGAB5AmxR6/otjvooyrE2RytYUmpxR9J8dYr6BO3cYldekZfsm60pLxn6u15OXFMMx2c21jrY66ZfyIAxZFlfMZ45tXckyoM4EVY50m6Iq6WXiIpYMgivB9X7oO9aQvbFQc7YZTv4gHi3dhI8nMrrOrE8777QoFDzw8CskxNgwih5+llBjKT+dO1FisKAaf5dfvWdykk+dr1QbtN7aCPnOl0uUBJmec+pzgU9VQVzoh/ClBdvOUmRZTbKpT08/NH9cDED0n30RFJA2lM9cPmrST4bz5lhc=" # DOCKER_PASS
+    - COMMIT=${TRAVIS_COMMIT::8}
+    - DOCKER_ACCOUNT=yaddayadda2
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+after_success:
+  - docker login -u yaddayadda2 -p $DOKER_PASS
+  # TAG the repo
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+
+  # API-GATEWAY-SERVICE
+  - export REGISTRY=$DOCKER_ACCOUNT/demo-elisa-sender
+  - docker build -t $REGISTRY:$TAG ./demo-elisa-sender
+  - docker push $REGISTRY
