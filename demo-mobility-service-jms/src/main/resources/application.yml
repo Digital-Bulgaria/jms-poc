@@ -7,3 +7,4 @@ elisa:
 wms:
     broker-url: tcp://localhost:61617
     destination-name: wms-mailbox
+
