@@ -8,3 +8,12 @@ services:
       - "8161:8161"
   demo-elisa-sender:
     build: ./demo-elisa-sender/.
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mraab
+      - MYSQL_USER=mraab
+      - MYSQL_PASSWORD=mraab
+      - MYSQL_DATABASE=mraab
