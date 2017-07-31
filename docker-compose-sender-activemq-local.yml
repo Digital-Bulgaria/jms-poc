@@ -8,6 +8,8 @@ services:
       - "8161:8161"
   demo-elisa-sender:
     build: ./demo-elisa-sender/.
+    ports:
+      - "8081:8080"
   db:
     image: mysql:5.7
     ports:

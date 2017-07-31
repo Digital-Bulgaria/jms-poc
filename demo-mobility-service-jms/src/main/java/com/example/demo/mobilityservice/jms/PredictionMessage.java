@@ -1,10 +1,10 @@
-package com.example.demosender;
+package com.example.demo.mobilityservice.jms;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Activity {
+public class PredictionMessage {
 
     private int year;
     private int kw;
@@ -99,7 +99,7 @@ public class Activity {
 
     @Override
     public String toString() {
-        return "Activity{" +
+        return "PredictionMessage{" +
                 "year=" + year +
                 ", kw=" + kw +
                 ", count=" + count +

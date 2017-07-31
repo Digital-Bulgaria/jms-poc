@@ -1,10 +1,14 @@
 package com.example.demo.mobilityservice.jms;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@XmlRootElement
-public class Activity {
+@Entity
+public class PredictionEntity {
+
+    private long id;
 
     private int year;
     private int kw;
@@ -16,7 +20,16 @@ public class Activity {
     private int deliveryTime;
     private int orderCount;
 
-    @XmlElement(name = "von_Jahr")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public int getYear() {
         return year;
     }
@@ -25,7 +38,6 @@ public class Activity {
         this.year = year;
     }
 
-    @XmlElement(name = "KW")
     public int getKw() {
         return kw;
     }
@@ -34,7 +46,6 @@ public class Activity {
         this.kw = kw;
     }
 
-    @XmlElement(name = "Lfd_Nr")
     public int getCount() {
         return count;
     }
@@ -43,7 +54,6 @@ public class Activity {
         this.count = count;
     }
 
-    @XmlElement(name = "Bereich")
     public int getArea() {
         return area;
     }
@@ -52,7 +62,6 @@ public class Activity {
         this.area = area;
     }
 
-    @XmlElement(name = "Markt_Nr")
     public String getMarketNumber() {
         return marketNumber;
     }
@@ -61,7 +70,6 @@ public class Activity {
         this.marketNumber = marketNumber;
     }
 
-    @XmlElement(name = "NAN")
     public int getNan() {
         return nan;
     }
@@ -70,7 +78,6 @@ public class Activity {
         this.nan = nan;
     }
 
-    @XmlElement(name = "WA_Einheit")
     public int getUnits() {
         return units;
     }
@@ -79,7 +86,6 @@ public class Activity {
         this.units = units;
     }
 
-    @XmlElement(name = "Liefertermin")
     public int getDeliveryTime() {
         return deliveryTime;
     }
@@ -88,7 +94,6 @@ public class Activity {
         this.deliveryTime = deliveryTime;
     }
 
-    @XmlElement(name = "Bestellmenge")
     public int getOrderCount() {
         return orderCount;
     }
@@ -99,7 +104,7 @@ public class Activity {
 
     @Override
     public String toString() {
-        return "Activity{" +
+        return "PredictionEntity{" +
                 "year=" + year +
                 ", kw=" + kw +
                 ", count=" + count +

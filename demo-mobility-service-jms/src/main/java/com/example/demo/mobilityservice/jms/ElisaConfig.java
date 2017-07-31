@@ -10,7 +10,6 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.support.converter.MessageConversionException;
 import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessagingMessageConverter;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 import javax.jms.JMSException;
@@ -43,7 +42,7 @@ public class ElisaConfig {
 
         public JaxbMessageConverter() {
             this.marshaller = new Jaxb2Marshaller();
-            Class<?>[] classesToBeBound = {Activity.class};
+            Class<?>[] classesToBeBound = {PredictionMessage.class};
             marshaller.setClassesToBeBound(classesToBeBound);
         }
 
