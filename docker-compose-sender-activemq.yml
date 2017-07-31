@@ -9,6 +9,8 @@ services:
   demo-elisa-sender:
     image: yaddayadda2/demo-elisa-sender
     restart: always
+    ports:
+      - "8081:8080"
   db:
     image: mysql:5.7
     ports:
