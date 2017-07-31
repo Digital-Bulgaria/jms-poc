@@ -9,7 +9,7 @@ services:
   demo-elisa-sender:
     build: ./demo-elisa-sender/.
     ports:
-      - "8080:8080"
+      - "8081:8080"
   db:
     image: mysql:5.7
     ports:
